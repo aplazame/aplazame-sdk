@@ -44,6 +44,7 @@ All amounts related to taxes, discounts and prices will be formatted as an integ
 ## Usage
 ```python
 from aplazame_sdk import Client
+
 client = Client('YOUR-ACCESS-TOKEN', format_type='json')
 response = client.orders()
 ```
