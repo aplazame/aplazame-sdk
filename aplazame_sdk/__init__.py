@@ -51,7 +51,7 @@ class Client(object):
     """
     A client for the Aplazame Recovery API.
 
-    See http://docs.aplazame.apiary.io/
+    See http://docs.aplazame.com/
     for complete documentation for the API.
     """
 
@@ -119,6 +119,10 @@ class Client(object):
         return self.request(self.endpoint(
             action), 'PUT', data=data, headers=headers)
 
+    def patch(self, action, data=None, headers=None):
+        return self.request(self.endpoint(
+            action), 'PATCH', data=data, headers=headers)
+
     def delete(self, action, params=None, headers=None):
         return self.request(self.endpoint(
             action), 'DELETE', params=params, headers=headers)
@@ -146,3 +150,28 @@ class Client(object):
 
     def order_detail(self, id):
         return self.get("orders/{id}".format(id=id))
+
+    def authorize(self, id):
+        return self.post("orders/{id}/authorize".format(id=id))
+
+    def cancel(self, id):
+        return self.post("orders/{id}/cancel".format(id=id))
+
+    def refund_check(self, id):
+        return self.get("orders/{id}/refund".format(id=id))
+
+    def refund(self, id, amount):
+        return self.post("orders/{id}/refund".format(id=id), {
+            'amount': amount
+        })
+
+    def update(self, id, data, partial=False):
+        if partial:
+            request = self.patch
+        else:
+            request = self.put
+
+        return request("orders/{id}".format(id=id), data)
+
+    def history(self, id, data):
+        return self.post("orders/{id}/history".format(id=id), data)
