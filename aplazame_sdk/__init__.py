@@ -96,7 +96,7 @@ class Client(object):
 
     def get(self, action, headers=None, ordering=None, **params):
         if ordering is not None:
-            params['ordering'] = ''.join(ordering)
+            params['ordering'] = ','.join(ordering)
 
         return self.request(self.endpoint(
             action), 'GET', params=params, headers=headers)
