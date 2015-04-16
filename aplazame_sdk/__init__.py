@@ -99,17 +99,20 @@ class Client(object):
 
         return ret
 
-    def get(self, action, params=None, headers=None):
+    def get(self, action, headers=None, ordering=None, **params):
+        if ordering is not None:
+            params['ordering'] = ''.join(ordering)
+
         return self.request(self.endpoint(
             action), 'GET', params=params, headers=headers)
 
-    def page(self, action, page, rpp):
-        params = {'page': page}
+    def page(self, action, page, rpp, **params):
+        params['page'] = page
 
         if rpp is not None:
             params['rpp'] = rpp
 
-        return self.get(action, params=params)
+        return self.get(action, **params)
 
     def post(self, action, data=None, headers=None):
         return self.request(self.endpoint(
@@ -135,18 +138,18 @@ class Client(object):
     def merchant_detail(self, id):
         return self.get("merchants/{id}".format(id=id))
 
-    def customers(self, page=None, rpp=None):
+    def customers(self, page=None, rpp=None, **params):
         if page is not None:
-            return self.page('customers', page, rpp)
-        return self.get('customers')
+            return self.page('customers', page, rpp, **params)
+        return self.get('customers', **params)
 
     def customer_detail(self, id):
         return self.get("customers/{id}".format(id=id))
 
-    def orders(self, page=None, rpp=None):
+    def orders(self, page=None, rpp=None, **params):
         if page is not None:
-            return self.page('orders', page, rpp)
-        return self.get('orders')
+            return self.page('orders', page, rpp, **params)
+        return self.get('orders', **params)
 
     def order_detail(self, id):
         return self.get("orders/{id}".format(id=id))
