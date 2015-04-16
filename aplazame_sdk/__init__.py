@@ -98,14 +98,6 @@ class Client(object):
         return self.request(self.endpoint(
             action), 'GET', params=params, headers=headers)
 
-    def page(self, action, page, rpp, **params):
-        params['page'] = page
-
-        if rpp is not None:
-            params['rpp'] = rpp
-
-        return self.get(action, **params)
-
     def post(self, action, data=None, headers=None):
         return self.request(self.endpoint(
             action), 'POST', data=data, headers=headers)
@@ -122,25 +114,19 @@ class Client(object):
         return self.request(self.endpoint(
             action), 'DELETE', params=params, headers=headers)
 
-    def merchants(self, page=None, rpp=None):
-        if page is not None:
-            return self.page('merchants', page, rpp)
-        return self.get('merchants')
+    def merchants(self, **params):
+        return self.get('merchants', **params)
 
     def merchant_detail(self, id):
         return self.get("merchants/{id}".format(id=id))
 
-    def customers(self, page=None, rpp=None, **params):
-        if page is not None:
-            return self.page('customers', page, rpp, **params)
+    def customers(self, **params):
         return self.get('customers', **params)
 
     def customer_detail(self, id):
         return self.get("customers/{id}".format(id=id))
 
-    def orders(self, page=None, rpp=None, **params):
-        if page is not None:
-            return self.page('orders', page, rpp, **params)
+    def orders(self, **params):
         return self.get('orders', **params)
 
     def order_detail(self, id):
