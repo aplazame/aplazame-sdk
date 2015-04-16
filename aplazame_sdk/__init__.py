@@ -92,12 +92,7 @@ class Client(object):
         if not (200 <= response.status_code < 300):
             raise AplazameError(response)
 
-        if self.format_type == 'json':
-            ret = json.loads(response.content)
-        else:
-            ret = response.content
-
-        return ret
+        return response
 
     def get(self, action, headers=None, ordering=None, **params):
         if ordering is not None:
