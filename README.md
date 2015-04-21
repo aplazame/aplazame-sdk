@@ -5,7 +5,7 @@
 
 ## Install package
 ```
-pip install git+https://github.com/calvinpy/aplazame-sdk.git
+pip install git+https://github.com/aplazame/aplazame-sdk.git
 ```
 
 ## Making Requests
