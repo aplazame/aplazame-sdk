@@ -157,9 +157,6 @@ class Client(object):
     def history(self, id, data):
         return self.post("orders/{id}/history".format(id=id), data)
 
-    def segments(self, id, **params):
-        return self.get("segments".format(id=id), **params)
-
     def defaults(self, id, **params):
         return self.get("customers/{id}/defaults".format(id=id), **params)
 
