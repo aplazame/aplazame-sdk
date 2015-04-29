@@ -154,6 +154,9 @@ class Client(object):
 
         return request("orders/{id}".format(id=id), data)
 
+    def customer_history(self, id, **params):
+        return self.get("customers/{id}/history".format(id=id), **params)
+
     def history(self, id, data):
         return self.post("orders/{id}/history".format(id=id), data)
 
