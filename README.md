@@ -2,7 +2,6 @@
 
 # aplazame-sdk
 
-
 ## Install package
 ```
 pip install git+https://github.com/aplazame/aplazame-sdk.git
