@@ -11,7 +11,7 @@ pip install git+https://github.com/aplazame/aplazame-sdk.git
 ```python
 from aplazame_sdk import Client
 
-client = Client('YOUR-ACCESS-TOKEN', format_type='json')
+client = Client('->AccessToken<-', format_type='json')
 response = client.orders()
 ```
 
