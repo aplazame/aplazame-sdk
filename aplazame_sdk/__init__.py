@@ -50,9 +50,7 @@ class Client(object):
 
     """
     A client for the Aplazame Recovery API.
-
-    See http://docs.aplazame.com/
-    for complete documentation for the API.
+    See http://docs.aplazame.com/ for complete API documentation.
     """
 
     user_agent = 'AplazameSdk/rest-sdk-aplazame ' + __version__
