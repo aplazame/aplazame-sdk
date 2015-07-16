@@ -14,7 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-__version__ = '0.1.1'
+__version__ = '0.1.2'
 
 import json
 import requests
@@ -26,11 +26,11 @@ class AplazameError(Exception):
     Exception Handling
     """
 
-    def __init__(self, response=None, format_type='json'):
+    def __init__(self, response=None, ctype='json'):
         self.response = response
         self.code = response.status_code
 
-        if format_type == 'json':
+        if ctype == 'json':
             try:
                 error = json.loads(self.response.content)['error']
             except ValueError:
@@ -55,31 +55,31 @@ class Client(object):
     for complete documentation for the API.
     """
 
-    user_agent = 'AplazameSdk/rest-sdk-aplazame 0.1'
+    user_agent = 'AplazameSdk/rest-sdk-aplazame ' + __version__
 
-    def __init__(
-            self, access_token, sandbox=False, version='1', format_type='json'):
+    def __init__(self, access_token, sandbox=False, version='1',
+                 ctype='json', ssl=True, host=None, verify=True):
 
         self.access_token = access_token
         self.version = version
-        self.format_type = format_type
+        self.ctype = ctype
         self.sandbox = sandbox
+        self.ssl = ssl
+        self.verify = verify
 
-    def endpoint(self, action):
-        return "https://api.aplazame.com/{action}".format(action=action)
+        if host is None:
+            self.host = 'api.aplazame.com'
+        else:
+            self.host = host
 
     @property
     def headers(self):
-        if self.sandbox:
-            site = 'aplazame.sandbox'
-        else:
-            site = 'aplazame'
-
         return {
             'User-Agent': self.user_agent,
             'Authorization': 'Bearer ' + self.access_token,
-            'Accept': "application/vnd.{site}-v"
-            "{self.version}+{self.format_type}".format(site=site, self=self)
+            'Accept': "application/vnd.aplazame{site}-v"
+            "{self.version}+{self.ctype}".format(
+                site=('.sandbox' if self.ssl else ''), self=self)
         }
 
     def request(self, url, method, headers=None, **kwargs):
@@ -87,32 +87,33 @@ class Client(object):
         http_headers.update(headers or {})
 
         response = requests.request(
-            method, url, headers=http_headers, **kwargs)
+            method, url, headers=http_headers, verify=self.verify, **kwargs)
 
         if not (200 <= response.status_code < 300):
             raise AplazameError(response)
 
         return response
 
-    def get(self, action, headers=None, **params):
-        return self.request(self.endpoint(
-            action), 'GET', params=params, headers=headers)
+    def _endpoint(self, action, method, **kwargs):
+        url = "{prot}://{self.host}/{action}".format(
+            self=self, action=action, prot=('https' if self.ssl else 'http'))
 
-    def post(self, action, data=None, headers=None):
-        return self.request(self.endpoint(
-            action), 'POST', data=data, headers=headers)
+        return self.request(url, method, **kwargs)
 
-    def put(self, action, data=None, headers=None):
-        return self.request(self.endpoint(
-            action), 'PUT', data=data, headers=headers)
+    def get(self, action, **params):
+        return self._endpoint(action, 'GET', params=params)
 
-    def patch(self, action, data=None, headers=None):
-        return self.request(self.endpoint(
-            action), 'PATCH', data=data, headers=headers)
+    def post(self, action, json=None):
+        return self._endpoint(action, 'POST', json=json)
 
-    def delete(self, action, params=None, headers=None):
-        return self.request(self.endpoint(
-            action), 'DELETE', params=params, headers=headers)
+    def put(self, action, json=None):
+        return self._endpoint(action, 'PUT', json=json)
+
+    def patch(self, action, json=None):
+        return self._endpoint(action, 'PATCH', json=json)
+
+    def delete(self, action, **kwargs):
+        return self._endpoint(action, 'DELETE', **kwargs)
 
     def merchants(self, **params):
         return self.get('merchants', **params)
@@ -149,16 +150,16 @@ class Client(object):
             'amount': amount
         })
 
-    def update(self, id, data, partial=False):
+    def update(self, id, json, partial=False):
         if partial:
             request = self.patch
         else:
             request = self.put
 
-        return request("orders/{id}".format(id=id), data)
+        return request("orders/{id}".format(id=id), json)
 
-    def history(self, id, data):
-        return self.post("orders/{id}/history".format(id=id), data)
+    def history(self, id, json):
+        return self.post("orders/{id}/history".format(id=id), json)
 
     def defaults(self, id, **params):
         return self.get("customers/{id}/defaults".format(id=id), **params)
