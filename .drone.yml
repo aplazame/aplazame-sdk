@@ -13,8 +13,7 @@ notify:
   slack:
     webhook_url: 'https://hooks.slack.com/services/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'
     username: 'drone'
-    on_started: false
-    on_success: true
+    on_success: change
     on_failure: true
 
   email:
