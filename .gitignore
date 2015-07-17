@@ -9,3 +9,9 @@
 *.p12
 *.cer
 *.pem
+*.egg*
+
+build
+dist
+junit.xml
+.coverage

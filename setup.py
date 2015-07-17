@@ -10,7 +10,7 @@ setup(
     scripts=[],
     test_suite='tests',
     zip_safe=False,
-    url='https://github.com/calvinpy',
+    url='https://github.com/aplazame/aplazame-sdk',
     license='Apache Software License',
     description='Python Interface to the Aplazame API',
     install_requires=['requests>=1.1.0'],

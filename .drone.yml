@@ -1,0 +1,8 @@
+image: python
+
+script:
+  - ./.drone/build.sh
+deploy:  
+  bash:
+    script:
+      - ./drone/deploy.sh
