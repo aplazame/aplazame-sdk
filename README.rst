@@ -10,8 +10,8 @@ Aplazame Python Sdk
 .. image:: http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master
     :target: https://pypi.python.org/pypi/aplazame-sdk
 
-.. image:: https://img.shields.io/coveralls/coagulant/aplazame-sdk.svg
-    :target: https://coveralls.io/r/coagulant/aplazame-sdk
+.. image:: https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=master&service=github
+    :target: https://coveralls.io/github/aplazame/aplazame-sdk?branch=master
 
 .. image:: https://aplazame.com/static/img/banners/Banner-white-1.png
     :target: https://aplazame.com
