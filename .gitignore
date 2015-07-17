@@ -11,9 +11,9 @@
 *.pem
 *.egg*
 
-build
-dist
-junit.xml
-
 .coverage
 .coveralls.yml
+
+dist
+build
+junit.xml
