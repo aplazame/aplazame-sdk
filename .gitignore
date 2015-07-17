@@ -14,4 +14,6 @@
 build
 dist
 junit.xml
+
 .coverage
+.coveralls.yml

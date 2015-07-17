@@ -5,7 +5,7 @@ test:
 	# py.test tests
 	py.test --host=api.dev.aplazame.com --token=029f07d69dfdc7aa573318239cdf6fc17d7daa04 --skip-verify
 coverage:
-	py.test --verbose --cov-report term --cov=aplazame_sdk tests
+	py.test --host=api.dev.aplazame.com --token=029f07d69dfdc7aa573318239cdf6fc17d7daa04 --skip-verify --verbose --cov-report term --cov=aplazame_sdk tests
 
 ci: init
 	py.test --junitxml=junit.xml

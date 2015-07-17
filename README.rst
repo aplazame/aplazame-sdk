@@ -2,16 +2,19 @@ Aplazame Python Sdk
 ===================
 
 .. image:: https://img.shields.io/pypi/v/aplazame-sdk.svg
-      :target: https://pypi.python.org/pypi/aplazame-sdk
-
-.. image:: http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master
-      :target: https://pypi.python.org/pypi/aplazame-sdk
+    :target: https://pypi.python.org/pypi/aplazame-sdk
 
 .. image:: https://img.shields.io/pypi/dm/aplazame-sdk.svg
-      :target: https://pypi.python.org/pypi/aplazame-sdk
+    :target: https://pypi.python.org/pypi/aplazame-sdk
+
+.. image:: http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master
+    :target: https://pypi.python.org/pypi/aplazame-sdk
+
+.. image:: https://img.shields.io/coveralls/coagulant/aplazame-sdk.svg
+    :target: https://coveralls.io/r/coagulant/aplazame-sdk
 
 .. image:: https://aplazame.com/static/img/banners/Banner-white-1.png
-      :target: https://aplazame.com
+    :target: https://aplazame.com
 
 Aplazame, a consumer credit company, offers a payment system that can be used by online buyers to receive funding for their purchases.
 
