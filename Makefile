@@ -1,4 +1,4 @@
-PYTEST ?= py.test --host=api.dev.aplazame.com --skip-verify --token=029f07d69dfdc7aa573318239cdf6fc17d7daa04
+PYTEST ?= py.test --host=api.aplazame.com --version=1
 export PYTEST
 
 init:

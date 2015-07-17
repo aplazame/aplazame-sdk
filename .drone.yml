@@ -1,19 +1,18 @@
 image: python
 
 script:
-  - chmod +x ./.drone/build.sh
   - ./.drone/build.sh
 deploy:  
   bash:
     script:
-      - pwd
-      - python -V
+      - chmod +x ./.drone/*.sh
+      - ./.drone/deploy.sh
 
 notify:
   slack:
     webhook_url: $$SLACK_WEBHOOOK_URL
     username: 'drone'
-    on_success: true
+    on_success: change
     on_failure: true
 
   email:
