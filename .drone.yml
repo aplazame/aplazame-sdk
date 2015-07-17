@@ -1,8 +1,10 @@
 image: python
 
 script:
+  - chmod +x ./.drone/build.sh
   - ./.drone/build.sh
 deploy:  
   bash:
     script:
-      - ./drone/deploy.sh
+      - pwd
+      - ls
