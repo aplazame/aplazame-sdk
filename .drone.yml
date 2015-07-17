@@ -1,11 +1,11 @@
 image: python
 
 script:
+  - chmod +x ./.drone/*.sh
   - ./.drone/build.sh
 deploy:  
   bash:
     script:
-      - chmod +x ./.drone/*.sh
       - ./.drone/deploy.sh
 
 notify:
