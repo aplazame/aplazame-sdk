@@ -1,4 +1,4 @@
-PYTEST ?= py.test --host=api.aplazame.com --version=1
+PYTEST ?= py.test --host=api.aplazame.com
 export PYTEST
 
 init:
@@ -6,14 +6,14 @@ init:
 	pip install -r requirements/build.txt
 
 test:
-	$(PYTEST)
+	$(PYTEST) --verbose tests
 
 coverage:
 	$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk tests
 	coveralls --verbose
 
 ci: init
-	$(PYTEST) --junitxml=junit.xml
+	$(PYTEST) --junitxml=junit.xml tests
 
 publish:
 	python setup.py register

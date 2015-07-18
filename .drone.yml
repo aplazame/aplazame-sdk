@@ -12,11 +12,11 @@ notify:
   slack:
     webhook_url: $$SLACK_WEBHOOOK_URL
     username: 'drone'
-    on_success: change
+    on_success: true
     on_failure: true
 
   email:
     recipients:
       - dev@aplazame.com
-    on_success: true
+    on_success: change
     on_failure: true
