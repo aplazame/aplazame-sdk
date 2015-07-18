@@ -1,14 +1,4 @@
-Aplazame Python Sdk
-
-[![Build Status](https://img.shields.io/pypi/v/aplazame-sdk.svg)](https://pypi.python.org/pypi/aplazame-sdk)
-
-[![Downloads](https://img.shields.io/pypi/dm/aplazame-sdk.svg) ](https://pypi.python.org/pypi/aplazame-sdk)
-
-[![Drone](http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master) ](http://drone.aplazame.com/github.com/aplazame/aplazame-sdk)
-
-[![Coveralls](https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=master&service=github) ](https://coveralls.io/github/aplazame/aplazame-sdk?branch=master)
-
-[![Aplazame](https://aplazame.com/static/img/banners/Banner-white-1.png "Aplazame") ](https://aplazame.com "Aplazame")
+# Aplazame Python Sdk [![Build Status](https://img.shields.io/pypi/v/aplazame-sdk.svg)](https://pypi.python.org/pypi/aplazame-sdk) [![Downloads](https://img.shields.io/pypi/dm/aplazame-sdk.svg) ](https://pypi.python.org/pypi/aplazame-sdk) [![Drone](http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master) ](http://drone.aplazame.com/github.com/aplazame/aplazame-sdk) [![Coveralls](https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=master&service=github) ](https://coveralls.io/github/aplazame/aplazame-sdk?branch=master) [![Aplazame](https://aplazame.com/static/img/banners/Banner-white-1.png "Aplazame") ](https://aplazame.com "Aplazame")
 
 Aplazame, a consumer credit company, offers a payment system that can be used by online buyers to receive funding for their purchases.
 
