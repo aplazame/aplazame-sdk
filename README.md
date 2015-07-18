@@ -41,17 +41,15 @@ $ pip install aplazame-sdk
 
 #### Http
 
+```http
+GET /orders HTTP/1.1
+Accept: application/vnd.aplazame.sandbox.v1+json
+Authorization: Bearer ->AccessToken<-
+Host: api.aplazame.com
 
-.. code-block:: http
-
-    GET /orders HTTP/1.1
-    Accept: application/vnd.aplazame.sandbox.v1+json
-    Authorization: Bearer ->AccessToken<-
-    Host: api.aplazame.com
-
-    HTTP/1.1 200 OK
-    Content-Type: application/vnd.aplazame.sandbox.v1+json
-
+HTTP/1.1 200 OK
+Content-Type: application/vnd.aplazame.sandbox.v1+json
+```
 
 ### Documentation
 
