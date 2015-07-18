@@ -97,7 +97,7 @@ class Client(object):
 
         return self.request(url, method, **kwargs)
 
-    def get(self, action, **params):
+    def get(self, action, params=None):
         return self._endpoint(action, 'GET', params=params)
 
     def post(self, action, json=None):
@@ -112,23 +112,23 @@ class Client(object):
     def delete(self, action, **kwargs):
         return self._endpoint(action, 'DELETE', **kwargs)
 
-    def merchants(self, **params):
-        return self.get('merchants', **params)
+    def merchants(self, params=None):
+        return self.get('merchants', params)
 
     def merchant_detail(self, id):
         return self.get("merchants/{id}".format(id=id))
 
-    def customers(self, **params):
-        return self.get('customers', **params)
+    def customers(self, params=None):
+        return self.get('customers', params)
 
     def customer_detail(self, id):
         return self.get("customers/{id}".format(id=id))
 
-    def customer_history(self, id, **params):
-        return self.get("customers/{id}/history".format(id=id), **params)
+    def customer_history(self, id, params=None):
+        return self.get("customers/{id}/history".format(id=id), params)
 
-    def orders(self, **params):
-        return self.get('orders', **params)
+    def orders(self, params=None):
+        return self.get('orders', params)
 
     def order_detail(self, id):
         return self.get("orders/{id}".format(id=id))
@@ -158,9 +158,9 @@ class Client(object):
     def history(self, id, json):
         return self.post("orders/{id}/history".format(id=id), json)
 
-    def defaults(self, id, **params):
-        return self.get("customers/{id}/defaults".format(id=id), **params)
+    def defaults(self, id, params=None):
+        return self.get("customers/{id}/defaults".format(id=id), params)
 
-    def default_history(self, customer_id, default_id, **params):
+    def default_history(self, customer_id, default_id, params=None):
         return self.get("customers/{0}/defaults/{1}".format(
-            customer_id, default_id), **params)
+            customer_id, default_id), params)
