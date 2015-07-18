@@ -8,7 +8,7 @@ Aplazame Python Sdk
     :target: https://pypi.python.org/pypi/aplazame-sdk
 
 .. image:: http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master
-    :target: https://pypi.python.org/pypi/aplazame-sdk
+    :target: http://drone.aplazame.com/github.com/aplazame/aplazame-sdk
 
 .. image:: https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/aplazame/aplazame-sdk?branch=master

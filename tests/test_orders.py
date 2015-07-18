@@ -1,4 +1,4 @@
-from . import SdkBaseCase
+from .base import SdkBaseCase
 
 
 class OrdersTestCase(SdkBaseCase):

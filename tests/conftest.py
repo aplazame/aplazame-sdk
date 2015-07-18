@@ -4,7 +4,8 @@ import pytest
 @pytest.fixture(scope='class')
 def conf_class(request):
     request.cls.host = request.config.option.host
-    request.cls.token = request.config.option.token
+    request.cls.private_token = request.config.option.private_token
+    request.cls.public_token = request.config.option.public_token
     request.cls.version = request.config.option.api_version
     request.cls.verify = not request.config.option.skip_verify
 
@@ -16,8 +17,14 @@ def pytest_addoption(parser):
         help='API host server')
 
     parser.addoption(
-        '--token',
-        help='Authorization token')
+        '--private-token',
+        dest='private_token',
+        help='Private Authorization token')
+
+    parser.addoption(
+        '--public-token',
+        dest='public_token',
+        help='Public Authorization token')
 
     parser.addoption(
         '--api-version',

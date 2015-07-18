@@ -7,7 +7,7 @@ from setuptools.command.test import test as TestCommand
 class PyTest(TestCommand):
     """
     Usage:
-    python setup.py test -a "--host=:host --token=:token"
+    python setup.py test -a "--host=:host --private-token=:token"
     """
     user_options = [
         ('pytest-args=', 'a', "Arguments to pass to py.test")
