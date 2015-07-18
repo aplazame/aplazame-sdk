@@ -3,6 +3,9 @@ export PYTEST
 
 init:
 	pip install -r requirements/tests.txt
+
+local:
+	pip install -r requirements/local.txt
 	pip install -r requirements/build.txt
 
 test:
