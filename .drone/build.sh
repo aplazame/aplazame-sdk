@@ -1,5 +1,5 @@
 #!/bin/bash
 
-make init
+make init-test
 make test
 make coverage

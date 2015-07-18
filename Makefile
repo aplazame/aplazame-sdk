@@ -1,10 +1,10 @@
 PYTEST ?= py.test --host=api.aplazame.com
 export PYTEST
 
-init:
+init-test:
 	pip install -r requirements/tests.txt
 
-local:
+init: init-test
 	pip install -r requirements/local.txt
 	pip install -r requirements/build.txt
 
