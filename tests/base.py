@@ -8,7 +8,7 @@ class SdkBaseCase(unittest.TestCase):
 
     def setUp(self):
         # pytest.set_trace()
-        if self.token is None:
+        if self.private_token is None:
             raise Exception('Todo: mocks')
 
         self.client = aplazame_sdk.Client(
