@@ -13,7 +13,7 @@ test:
 
 coverage:
 	$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk tests
-	coveralls --verbose
+	coveralls
 
 ci: init
 	$(PYTEST) --junitxml=junit.xml tests
