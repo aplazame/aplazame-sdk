@@ -1,8 +1,12 @@
 image: python
 
+branches:
+  - master
+
 script:
   - chmod +x ./.drone/*.sh
   - ./.drone/build.sh
+
 deploy:  
   bash:
     script:
