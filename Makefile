@@ -22,3 +22,13 @@ publish:
 	python setup.py register
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
+
+master:
+	git checkout master
+	git merge $(branch)
+	git push origin master
+	git checkout $(branch)
+
+dev:
+	git checkout $(branch)
+	git push origin $(branch)
