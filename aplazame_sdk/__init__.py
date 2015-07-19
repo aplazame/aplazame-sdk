@@ -98,8 +98,8 @@ class Client(object):
         return self.request(url, method, **kwargs)
 
     def get(self, action, params=None, **kwargs):
-        params = (params or {}).update(kwargs)
-        return self._endpoint(action, 'GET', params=params)
+        kwargs.update((params or {}))
+        return self._endpoint(action, 'GET', params=kwargs)
 
     def post(self, action, json=None):
         return self._endpoint(action, 'POST', json=json)

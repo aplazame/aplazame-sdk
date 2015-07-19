@@ -7,10 +7,12 @@ class OrdersTestCase(SdkBaseCase):
     def setUp(self):
         super(OrdersTestCase, self).setUp()
 
-        results = self.client.orders({
-            'confirmed_until': datetime.now()
-        }).json()['results']
+        response = self.client.orders({
+            'confirmed_until': datetime.now(),
+            'ordering': '-cancelled'
+        })
 
+        results = response.json()['results']
         self.order = results[0] if results else None
 
     def _order_required(f):
@@ -46,3 +48,23 @@ class OrdersTestCase(SdkBaseCase):
     def test_authorize(self):
         response = self.client.authorize(self.order['mid'])
         self.assertEqual(response.status_code, 200)
+
+    @_order_required
+    def test_update(self):
+        response = self.client.update(self.order['mid'], {
+            'order': {
+                'articles': [{
+                    'id': '59825349042875546873',
+                    'name': 'N5 eau premiere spray',
+                    'description': 'A decidedly lighter, fresher...',
+                    'url': 'http://www.chanel.com',
+                    'image_url': 'http://www.chanel.com',
+                    'quantity': 1,
+                    'price': 29000,
+                    'tax_rate': 2100
+                }],
+                'discount': 300
+            }
+        }, partial=True)
+
+        self.assertEqual(response.status_code, 204)
