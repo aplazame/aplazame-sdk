@@ -1,6 +1,5 @@
-from .base import SdkBaseCase
-
 from datetime import datetime
+from .base import SdkBaseCase
 
 
 class OrdersTestCase(SdkBaseCase):
@@ -11,6 +10,7 @@ class OrdersTestCase(SdkBaseCase):
         results = self.client.orders({
             'confirmed_until': datetime.now()
         }).json()['results']
+
         self.order = results[0] if results else None
 
     def _order_required(f):
