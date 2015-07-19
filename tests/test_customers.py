@@ -4,4 +4,5 @@ from .base import SdkBaseCase
 class CustomersTestCase(SdkBaseCase):
 
     def test_list(self):
-        self.assertStatus(self.client.customers(), 200)
+        response = self.client.customers()
+        self.assertEqual(response.status_code, 200)

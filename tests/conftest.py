@@ -6,7 +6,7 @@ def conf_class(request):
     request.cls.host = request.config.option.host
     request.cls.private_token = request.config.option.private_token
     request.cls.public_token = request.config.option.public_token
-    request.cls.version = request.config.option.api_version
+    request.cls.api_version = request.config.option.api_version
     request.cls.verify = not request.config.option.skip_verify
 
 

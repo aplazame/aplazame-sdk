@@ -4,4 +4,5 @@ from .base import SdkBaseCase
 class MerchantsTestCase(SdkBaseCase):
 
     def test_list(self):
-        self.assertStatus(self.client.merchants(), 200)
+        response = self.client.merchants()
+        self.assertEqual(response.status_code, 200)

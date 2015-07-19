@@ -97,7 +97,8 @@ class Client(object):
 
         return self.request(url, method, **kwargs)
 
-    def get(self, action, params=None):
+    def get(self, action, params=None, **kwargs):
+        params = (params or {}).update(kwargs)
         return self._endpoint(action, 'GET', params=params)
 
     def post(self, action, json=None):
@@ -112,22 +113,22 @@ class Client(object):
     def delete(self, action, **kwargs):
         return self._endpoint(action, 'DELETE', **kwargs)
 
-    def merchants(self, params=None):
+    def merchants(self, params=None, **kwargs):
         return self.get('merchants', params)
 
     def merchant_detail(self, id):
         return self.get("merchants/{id}".format(id=id))
 
-    def customers(self, params=None):
+    def customers(self, params=None, **kwargs):
         return self.get('customers', params)
 
     def customer_detail(self, id):
         return self.get("customers/{id}".format(id=id))
 
-    def customer_history(self, id, params=None):
+    def customer_history(self, id, params=None, **kwargs):
         return self.get("customers/{id}/history".format(id=id), params)
 
-    def orders(self, params=None):
+    def orders(self, params=None, **kwargs):
         return self.get('orders', params)
 
     def order_detail(self, id):
@@ -158,9 +159,9 @@ class Client(object):
     def history(self, id, json):
         return self.post("orders/{id}/history".format(id=id), json)
 
-    def defaults(self, id, params=None):
+    def defaults(self, id, params=None, **kwargs):
         return self.get("customers/{id}/defaults".format(id=id), params)
 
-    def default_history(self, customer_id, default_id, params=None):
+    def default_history(self, customer_id, default_id, params=None, **kwargs):
         return self.get("customers/{0}/defaults/{1}".format(
             customer_id, default_id), params)

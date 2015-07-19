@@ -13,10 +13,18 @@ class SdkBaseCase(unittest.TestCase):
 
         self.client = aplazame_sdk.Client(
             access_token=self.private_token, host=self.host, sandbox=True,
-            version=self.version, verify=self.verify)
+            version=self.api_version, verify=self.verify)
 
     def tearDown(self):
         pass
 
-    def assertStatus(self, response, code):
-        self.assertEqual(response.status_code, code)
+    def request(self, method, action, *args, **kwargs):
+        return getattr(self.client, method.lower())(action, *args, **kwargs)
+
+    def requestError(self, method, action, *args, **kwargs):
+        with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
+            self.request(method, action, *args, **kwargs)
+        return excinfo.value
+
+    def assertFieldError(self, error, field):
+        self.assertIn(field, error.response.json()['error']['fields'])
