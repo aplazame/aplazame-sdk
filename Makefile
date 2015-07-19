@@ -1,6 +1,8 @@
 PYTEST ?= py.test --host=api.aplazame.com
 export PYTEST
 
+branch ?= dev
+
 init-test:
 	pip install -r requirements/tests.txt
 
