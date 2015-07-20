@@ -2,6 +2,7 @@ PYTEST ?= py.test --host=api.aplazame.com
 export PYTEST
 
 branch ?= dev
+tests ?= tests
 
 init-test:
 	pip install -r requirements/tests.txt
@@ -11,7 +12,7 @@ init: init-test
 	pip install -r requirements/build.txt
 
 test:
-	$(PYTEST) --verbose tests
+	$(PYTEST) --verbose $(tests)
 
 coverage:
 	$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk tests

@@ -121,7 +121,7 @@ class OrdersTestCase(SdkBaseCase):
             'ordering': 'cancelled,confirmed'
         }).json()['results'][0]
 
-        if order['cancelled'] is None:
+        if order['cancelled'] is not None:
             with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
                 self.client.cancel(order['mid'])
 
@@ -134,6 +134,6 @@ class OrdersTestCase(SdkBaseCase):
     @_order_required
     def test_history(self):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
-            self.client.history(self.order['mid'])
+            self.client.history(self.order['mid'], {})
 
         self.assertEqual(excinfo.value.code, 403)
