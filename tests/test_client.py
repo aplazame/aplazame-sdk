@@ -9,6 +9,7 @@ class ClientTestCase(SdkBaseCase):
     def test_delete(self):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
             self.client.delete('/orders')
+
         self.assertEqual(excinfo.value.code, 405)
 
     def test_default_host(self):
@@ -25,3 +26,9 @@ class ClientTestCase(SdkBaseCase):
             self.client.order_detail('404')
 
         self.assertEqual(excinfo.value.type, None)
+
+    def test_error_repr(self):
+        with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
+            self.client.post('/orders')
+
+        self.assertIn('not allowed', repr(excinfo.value))
