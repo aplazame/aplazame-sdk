@@ -1,7 +1,7 @@
-from .base import SdkBaseCase
+from .base import SdkBaseTestCase
 
 
-class MerchantsTestCase(SdkBaseCase):
+class MerchantsTestCase(SdkBaseTestCase):
 
     def setUp(self):
         super(MerchantsTestCase, self).setUp()

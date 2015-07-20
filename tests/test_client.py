@@ -1,10 +1,10 @@
 import pytest
 import aplazame_sdk
 
-from .base import SdkBaseCase
+from .base import SdkBaseTestCase
 
 
-class ClientTestCase(SdkBaseCase):
+class ClientTestCase(SdkBaseTestCase):
 
     def test_delete(self):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
@@ -25,7 +25,7 @@ class ClientTestCase(SdkBaseCase):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
             self.client.order_detail('404')
 
-        self.assertEqual(excinfo.value.type, None)
+        self.self.assertIsNone(excinfo.value.type)
 
     def test_error_repr(self):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:

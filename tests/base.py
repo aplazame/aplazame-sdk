@@ -4,10 +4,9 @@ import aplazame_sdk
 
 
 @pytest.mark.usefixtures('conf_class')
-class SdkBaseCase(unittest.TestCase):
+class SdkBaseTestCase(unittest.TestCase):
 
     def setUp(self):
-        # pytest.set_trace()
         if self.private_token is None:
             raise Exception('Todo: mocks')
 
