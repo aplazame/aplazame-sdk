@@ -78,6 +78,22 @@ class OrdersTestCase(SdkBaseCase):
         self.assertEqual(response.status_code, 204)
 
     @_order_required
+    def test_cancel(self):
+        order = self.client.orders({
+            'ordering': 'cancelled,confirmed'
+        }).json()['results'][0]
+
+        if order['cancelled'] is not None:
+            with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
+                self.client.cancel(order['mid'])
+
+            self.assertEqual(excinfo.value.code, 403)
+
+        else:
+            response = self.client.cancel(order['mid'])
+            self.assertEqual(response.status_code, 204)
+
+    @_order_required
     def test_update(self):
         response = self.client.update(self.order['mid'], {
             'order': {
@@ -114,22 +130,6 @@ class OrdersTestCase(SdkBaseCase):
         })
 
         self.assertEqual(response.status_code, 204)
-
-    @_order_required
-    def test_cancel(self):
-        order = self.client.orders({
-            'ordering': 'cancelled,confirmed'
-        }).json()['results'][0]
-
-        if order['cancelled'] is not None:
-            with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
-                self.client.cancel(order['mid'])
-
-            self.assertEqual(excinfo.value.code, 403)
-
-        else:
-            response = self.client.cancel(order['mid'])
-            self.assertEqual(response.status_code, 204)
 
     @_order_required
     def test_history(self):
