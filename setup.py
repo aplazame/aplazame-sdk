@@ -29,7 +29,7 @@ class PyTest(TestCommand):
 
 setup(
     name='aplazame-sdk',
-    version='0.1.2',
+    version='0.2',
     author='calvin',
     author_email='dani@aplazame.com',
     packages=['aplazame_sdk'],
