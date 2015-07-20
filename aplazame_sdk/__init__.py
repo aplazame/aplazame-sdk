@@ -30,11 +30,12 @@ class AplazameError(Exception):
         self.response = response
         self.code = response.status_code
 
-        if ctype == 'json':
+        if response is not None and ctype == 'json':
             try:
-                error = json.loads(self.response.content)['error']
+                error = json.loads(response.content)['error']
             except ValueError:
-                pass
+                self.message = 'Unknown Error'
+                self.type = None
             else:
                 self.message = error['message']
                 self.type = error['type']
@@ -124,9 +125,6 @@ class Client(object):
 
     def customer_detail(self, id):
         return self.get("customers/{id}".format(id=id))
-
-    def customer_history(self, id, params=None, **kwargs):
-        return self.get("customers/{id}/history".format(id=id), params)
 
     def orders(self, params=None, **kwargs):
         return self.get('orders', params)
