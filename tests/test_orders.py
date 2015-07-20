@@ -1,4 +1,6 @@
-from datetime import datetime
+import pytest
+import aplazame_sdk
+
 from .base import SdkBaseCase
 
 
@@ -8,12 +10,18 @@ class OrdersTestCase(SdkBaseCase):
         super(OrdersTestCase, self).setUp()
 
         response = self.client.orders({
-            'confirmed_until': datetime.now(),
-            'ordering': '-cancelled'
+            'ordering': '-cancelled,confirmed'
         })
 
-        results = response.json()['results']
-        self.order = results[0] if results else None
+        qs = response.json()['results']
+
+        if qs and qs[0]['cancelled'] is None\
+                and qs[0]['confirmed'] is not None:
+
+            self.order = qs[0]
+
+        else:
+            self.order = None
 
     def _order_required(f):
         def wrapped(self, *args, **kwargs):
@@ -106,3 +114,26 @@ class OrdersTestCase(SdkBaseCase):
         })
 
         self.assertEqual(response.status_code, 204)
+
+    @_order_required
+    def test_cancel(self):
+        order = self.client.orders({
+            'ordering': 'cancelled,confirmed'
+        }).json()['results'][0]
+
+        if order['cancelled'] is None:
+            with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
+                self.client.cancel(order['mid'])
+
+            self.assertEqual(excinfo.value.code, 403)
+
+        else:
+            response = self.client.cancel(order['mid'])
+            self.assertEqual(response.status_code, 204)
+
+    @_order_required
+    def test_history(self):
+        with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
+            self.client.history(self.order['mid'])
+
+        self.assertEqual(excinfo.value.code, 403)
