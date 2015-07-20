@@ -25,7 +25,7 @@ class ClientTestCase(SdkBaseTestCase):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
             self.client.order_detail('404')
 
-        self.self.assertIsNone(excinfo.value.type)
+        self.assertIsNone(excinfo.value.type)
 
     def test_error_repr(self):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
