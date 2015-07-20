@@ -50,7 +50,7 @@ def get_long_description():
 setup(
     name='aplazame-sdk',
     version=get_version('aplazame_sdk'),
-    description='Python Interface to the Aplazame API',
+    description='Python SDK for Aplazame REST API',
     long_description=get_long_description(),
     author='calvin',
     author_email='dani@aplazame.com',
