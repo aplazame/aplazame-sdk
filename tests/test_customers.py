@@ -1,6 +1,3 @@
-import pytest
-import aplazame_sdk
-
 from .base import SdkBaseCase
 
 
@@ -31,17 +28,3 @@ class CustomersTestCase(SdkBaseCase):
     def _test_history(self):
         response = self.client.customer_history(self.customer['id'])
         self.assertEqual(response.status_code, 200)
-
-    @_customer_required
-    def test_defaults(self):
-        with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
-            self.client.defaults(self.customer['id'])
-
-        self.assertEqual(excinfo.value.code, 403)
-
-    @_customer_required
-    def test_default_history(self):
-        with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
-            self.client.default_history(self.customer['id'], 0)
-
-        self.assertEqual(excinfo.value.code, 404)

@@ -156,10 +156,3 @@ class Client(object):
 
     def history(self, id, json):
         return self.post("orders/{id}/history".format(id=id), json)
-
-    def defaults(self, id, params=None, **kwargs):
-        return self.get("customers/{id}/defaults".format(id=id), params)
-
-    def default_history(self, customer_id, default_id, params=None, **kwargs):
-        return self.get("customers/{0}/defaults/{1}".format(
-            customer_id, default_id), params)
