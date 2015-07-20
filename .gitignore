@@ -9,7 +9,7 @@
 *.p12
 *.cer
 *.pem
-*.egg*
+*.egg-info
 
 .coverage
 .coveralls.yml
