@@ -62,6 +62,7 @@ Documentation is available at `docs.aplazame.com`_.
 
 .. _docs.aplazame.com: http://docs.aplazame.com
 
+
 .. |Build Status| image:: https://img.shields.io/pypi/v/aplazame-sdk.svg
    :target: https://pypi.python.org/pypi/aplazame-sdk
 .. |Wheel| image:: https://img.shields.io/pypi/wheel/aplazame-sdk.svg
