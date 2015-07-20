@@ -46,6 +46,7 @@ def get_long_description():
 
     return "{0}\n\n{1}".format(readme, history)
 
+
 setup(
     name='aplazame-sdk',
     version=get_version('aplazame_sdk'),
