@@ -1,6 +1,15 @@
 Change Log
 ==========
 
+
+`0.2.1`_ (2015-?-?)
+-------------------
+
+`Full Changelog`_
+
+*  Continuous integration deploy master
+
+
 `0.2.0`_ (2015-07-20)
 ---------------------
 
@@ -14,4 +23,5 @@ Change Log
 *  Get method params strategy
 
 .. _0.2.0: https://github.com/aplazame/aplazame-sdk/tree/v0.2.0
-.. _Full Changelog: https://github.com/aplazame/aplazame-sdk/compare/0.2.0...0.2.0
+.. _0.2.1: https://github.com/aplazame/aplazame-sdk/tree/v0.2.1
+.. _Full Changelog: https://github.com/aplazame/aplazame-sdk/compare/0.2.0...0.2.1

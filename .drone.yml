@@ -19,7 +19,7 @@ deploy:
 
 notify:
   slack:
-    webhook_url: $$SLACK_WEBHOOOK_URL
+    webhook_url: $$SLACK_WEBHOOK_URL
     username: 'drone'
     on_success: change
     on_failure: true
