@@ -32,7 +32,7 @@ master:
 	git push origin master
 
 rel:
-	git checkout -b release
+	git checkout release
 	git merge $(branch)
 	git push origin release
 	git checkout $(branch)
