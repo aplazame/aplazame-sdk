@@ -17,10 +17,10 @@ notify:
     webhook_url: $$SLACK_WEBHOOOK_URL
     username: 'drone'
     on_success: change
-    on_failure: true
+    on_failure: false
 
   email:
     recipients:
       - dev@aplazame.com
     on_success: change
-    on_failure: true
+    on_failure: false
