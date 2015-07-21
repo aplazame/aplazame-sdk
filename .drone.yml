@@ -15,7 +15,7 @@ deploy:
   git:
     target: git@github.com:aplazame/aplazame-sdk.git
     branch: master
-    force: true
+    force: false
 
 notify:
   slack:
