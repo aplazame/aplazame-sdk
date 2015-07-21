@@ -26,10 +26,10 @@ publish:
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
 
-master:
-	git checkout master
+rel:
+	git checkout release
 	git merge $(branch)
-	git push origin master
+	git push origin release
 	git checkout $(branch)
 
 dev:

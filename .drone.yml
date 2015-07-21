@@ -1,7 +1,7 @@
 image: python
 
 branches:
-  - master
+  - release
 
 script:
   - chmod +x ./.drone/*.sh
