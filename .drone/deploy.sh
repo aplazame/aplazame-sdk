@@ -1,3 +1,3 @@
 #!/bin/bash
 
-make master
+git status
