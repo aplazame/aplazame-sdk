@@ -13,7 +13,7 @@ deploy:
       - ./.drone/deploy.sh
 
   git:
-    target: git@github.com/aplazame/aplazame-sdk.git
+    target: git@github.com:aplazame/aplazame-sdk.git
     branch: master
     force: false
 
