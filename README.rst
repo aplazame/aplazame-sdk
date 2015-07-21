@@ -71,8 +71,8 @@ Documentation is available at `docs.aplazame.com`_.
    :target: https://pypi.python.org/pypi/aplazame-sdk
 .. |Drone| image:: http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master
    :target: http://drone.aplazame.com/github.com/aplazame/aplazame-sdk
-.. |Coveralls| image:: https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=master&service=github
-   :target: https://coveralls.io/github/aplazame/aplazame-sdk?branch=master
+.. |Coveralls| image:: https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=HEAD&service=github
+   :target: https://coveralls.io/github/aplazame/aplazame-sdk?branch=HEAD
 .. |Code Climate| image:: https://codeclimate.com/github/aplazame/aplazame-sdk/badges/gpa.svg
    :target: https://codeclimate.com/github/aplazame/aplazame-sdk
 .. |Aplazame| image:: https://aplazame.com/static/img/banners/banner-728-white.png
