@@ -16,8 +16,6 @@ test:
 
 coverage:
 	$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk tests
-	git commit -am "coverage on master"
-	git checkout master
 	coveralls
 
 ci: init

@@ -3,4 +3,4 @@
 set -e 
 
 make init-test
-make coverage
+make test
