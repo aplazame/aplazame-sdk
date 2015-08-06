@@ -2,6 +2,7 @@ import pytest
 import aplazame_sdk
 
 from .base import SdkBaseTestCase
+from .decorators import instance_required
 
 
 class OrdersTestCase(SdkBaseTestCase):
@@ -18,16 +19,10 @@ class OrdersTestCase(SdkBaseTestCase):
         if qs and qs[0]['cancelled'] is None\
                 and qs[0]['confirmed'] is not None:
 
-            self.order = qs[0]
+            self.instance = qs[0]
 
         else:
-            self.order = None
-
-    def _order_required(f):
-        def wrapped(self, *args, **kwargs):
-            if self.order is not None:
-                return f(self, *args, **kwargs)
-        return wrapped
+            self.instance = None
 
     def test_list(self):
         response = self.client.orders()
@@ -37,29 +32,29 @@ class OrdersTestCase(SdkBaseTestCase):
         response = self.client.orders(page=2)
         self.assertEqual(response.status_code, 200)
 
-    @_order_required
+    @instance_required
     def test_detail(self):
-        response = self.client.order_detail(self.order['id'])
+        response = self.client.order_detail(self.instance['id'])
         self.assertEqual(response.status_code, 200)
 
-    @_order_required
+    @instance_required
     def test_refund_check(self):
-        response = self.client.refund_check(self.order['mid'])
+        response = self.client.refund_check(self.instance['mid'])
         self.assertEqual(response.status_code, 200)
 
-    @_order_required
+    @instance_required
     def test_refund(self):
-        response = self.client.refund(self.order['mid'], amount=1)
+        response = self.client.refund(self.instance['mid'], amount=1)
         self.assertEqual(response.status_code, 200)
 
-    @_order_required
+    @instance_required
     def test_authorize(self):
-        response = self.client.authorize(self.order['mid'])
+        response = self.client.authorize(self.instance['mid'])
         self.assertEqual(response.status_code, 200)
 
-    @_order_required
+    @instance_required
     def test_partial_update(self):
-        response = self.client.update(self.order['mid'], {
+        response = self.client.update(self.instance['mid'], {
             'order': {
                 'articles': [{
                     'id': '59825349042875546873',
@@ -77,7 +72,7 @@ class OrdersTestCase(SdkBaseTestCase):
 
         self.assertEqual(response.status_code, 204)
 
-    @_order_required
+    @instance_required
     def test_cancel(self):
         order = self.client.orders({
             'ordering': 'cancelled,confirmed'
@@ -93,9 +88,9 @@ class OrdersTestCase(SdkBaseTestCase):
             response = self.client.cancel(order['mid'])
             self.assertEqual(response.status_code, 204)
 
-    @_order_required
+    @instance_required
     def test_update(self):
-        response = self.client.update(self.order['mid'], {
+        response = self.client.update(self.instance['mid'], {
             'order': {
                 'shipping': {
                     'first_name': 'Hobbes',
@@ -131,9 +126,9 @@ class OrdersTestCase(SdkBaseTestCase):
 
         self.assertEqual(response.status_code, 204)
 
-    @_order_required
+    @instance_required
     def test_history(self):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
-            self.client.history(self.order['mid'], {})
+            self.client.history(self.instance['mid'], {})
 
         self.assertEqual(excinfo.value.code, 403)

@@ -77,7 +77,7 @@ class Client(object):
             'User-Agent': self.user_agent,
             'Authorization': 'Bearer ' + self.access_token,
             'Accept': "application/vnd.aplazame{site}.v{s.version}+{s.ctype}"
-            .format(site=('.sandbox' if self.ssl else ''), s=self)
+            .format(site=('.sandbox' if self.sandbox else ''), s=self)
         }
 
     def request(self, url, method, headers=None, **kwargs):
