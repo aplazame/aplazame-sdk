@@ -1,11 +1,11 @@
 import pytest
 import aplazame_sdk
 
-from .base import SdkBaseTestCase
+from .base import PrivateTestCase
 from .decorators import instance_required
 
 
-class OrdersTestCase(SdkBaseTestCase):
+class OrdersTestCase(PrivateTestCase):
 
     def setUp(self):
         super(OrdersTestCase, self).setUp()

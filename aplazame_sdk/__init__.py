@@ -14,7 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-__version__ = '0.2.0'
+__version__ = '0.2.1'
 
 import json
 import requests
@@ -156,3 +156,6 @@ class Client(object):
 
     def history(self, id, json):
         return self.post("orders/{id}/history".format(id=id), json)
+
+    def simulator(self, amount):
+        return self.get('instalment-plan-simulator', {'amount': amount})

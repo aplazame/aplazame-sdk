@@ -6,12 +6,12 @@ import aplazame_sdk
 @pytest.mark.usefixtures('conf_class')
 class SdkBaseTestCase(unittest.TestCase):
 
-    def setUp(self):
-        if self.private_token is None:
+    def get_client(self, token):
+        if token is None:
             raise Exception('Todo: mocks')
 
-        self.client = aplazame_sdk.Client(
-            access_token=self.private_token, host=self.host, sandbox=True,
+        return aplazame_sdk.Client(
+            access_token=token, host=self.host, sandbox=True,
             version=self.api_version, verify=self.verify)
 
     def tearDown(self):
@@ -27,3 +27,15 @@ class SdkBaseTestCase(unittest.TestCase):
 
     def assertFieldError(self, error, field):
         self.assertIn(field, error.response.json()['error']['fields'])
+
+
+class PrivateTestCase(SdkBaseTestCase):
+
+    def setUp(self):
+        self.client = self.get_client(self.private_token)
+
+
+class PublicTestCase(SdkBaseTestCase):
+
+    def setUp(self):
+        self.client = self.get_client(self.public_token)
