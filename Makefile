@@ -1,4 +1,4 @@
-PYTEST ?= py.test --host=api.aplazame.com
+PYTEST ?= py.test --host=api.dev.aplazame.com --skip-verify --public-token=d3571070407d151b9b9d20c69deeab27e738b10f --private-token=029f07d69dfdc7aa573318239cdf6fc17d7daa04
 export PYTEST
 
 branch ?= dev
@@ -26,17 +26,13 @@ publish:
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
 
-master:
-	git checkout master
-	git merge release
-	git push origin master
-
-rel:
-	git checkout release
-	git merge $(branch)
-	git push origin release
-	git checkout $(branch)
-
 dev:
 	git checkout $(branch)
 	git push origin $(branch)
+
+release:
+	git checkout release
+	git merge master
+	git push origin release
+	git checkout dev
+

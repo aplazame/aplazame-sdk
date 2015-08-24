@@ -13,20 +13,15 @@ deploy:
     script:
       - ./.drone/deploy.sh
 
-  git:
-    target: git@github.com:aplazame/aplazame-sdk.git
-    branch: master
-    force: false
-
 notify:
   slack:
     webhook_url: $$SLACK_WEBHOOK_URL
     username: 'drone'
     on_success: change
-    on_failure: false
+    on_failure: true
 
   email:
     recipients:
       - dev@aplazame.com
     on_success: change
-    on_failure: false
+    on_failure: true
