@@ -1,6 +1,7 @@
 image: python
 
 branches:
+  - master
   - release
 
 script:
