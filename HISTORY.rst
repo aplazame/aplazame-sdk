@@ -25,4 +25,4 @@ Change Log
 
 .. _0.2.0: https://github.com/aplazame/aplazame-sdk/tree/v0.2.0
 .. _0.2.1: https://github.com/aplazame/aplazame-sdk/tree/v0.2.1
-.. _Full Changelog: https://github.com/aplazame/aplazame-sdk/compare/0.2.0...0.2.1
+.. _Full Changelog: https://github.com/aplazame/aplazame-sdk/compare/v0.2.0...v0.2.1
