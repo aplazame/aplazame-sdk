@@ -7,7 +7,7 @@ Change Log
 `Full Changelog`_
 
 * Continuous integration strategy
-
+* ci Pull request
 
 `0.2.1`_ (2015-08-24)
 -------------------
