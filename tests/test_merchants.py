@@ -1,8 +1,8 @@
-from .base import SdkBaseTestCase
+from .base import PrivateTestCase
 from .decorators import instance_required
 
 
-class MerchantsTestCase(SdkBaseTestCase):
+class MerchantsTestCase(PrivateTestCase):
 
     def setUp(self):
         super(MerchantsTestCase, self).setUp()

@@ -156,3 +156,6 @@ class Client(object):
 
     def history(self, id, json):
         return self.post("orders/{id}/history".format(id=id), json)
+
+    def simulator(self, amount):
+        return self.get('instalment-plan-simulator', {'amount': amount})

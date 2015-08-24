@@ -1,10 +1,10 @@
 import pytest
 import aplazame_sdk
 
-from .base import SdkBaseTestCase
+from .base import PrivateTestCase
 
 
-class ClientTestCase(SdkBaseTestCase):
+class ClientTestCase(PrivateTestCase):
 
     def test_delete(self):
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
