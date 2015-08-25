@@ -8,7 +8,7 @@ script:
   - chmod +x ./.drone/*.sh
   - ./.drone/build.sh
 
-deploy:
+deploy:  
   bash:
     script:
       - ./.drone/deploy.sh

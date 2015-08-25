@@ -4,8 +4,16 @@ set -e
 
 make init-test
 
-echo branch: $DRONE_BRANCH
+case $DRONE_BRANCH in
+    dev)
+        echo pull request
+        ;;
 
-if [ "$DRONE_BRANCH" = "release" ];
-	then make coverage;
-fi
+    @(master|release) )
+        make coverage
+        ;;
+
+    *)
+        echo "Unknown"
+        ;;
+esac
