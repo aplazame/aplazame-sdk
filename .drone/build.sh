@@ -9,7 +9,7 @@ case $DRONE_BRANCH in
         echo pull request
         ;;
 
-    @(master|release) )
+    master|release)
         make coverage
         ;;
 
