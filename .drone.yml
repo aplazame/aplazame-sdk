@@ -8,10 +8,11 @@ script:
   - chmod +x ./.drone/*.sh
   - ./.drone/build.sh
 
-deploy:  
-  bash:
-    script:
-      - ./.drone/deploy.sh
+deploy:
+  master:
+    bash:
+      script:
+        - ./.drone/deploy.sh
 
 notify:
   slack:
