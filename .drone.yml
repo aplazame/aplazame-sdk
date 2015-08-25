@@ -9,7 +9,7 @@ script:
   - ./.drone/build.sh
 
 deploy:
-  master:
+  release:
     bash:
       script:
         - ./.drone/deploy.sh

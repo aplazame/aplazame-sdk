@@ -10,6 +10,6 @@ case $DRONE_BRANCH in
         ;;
 
     *)
-        echo pull request, all checks have passed
+        echo *$DRONE_BRANCH* pull request, all checks have passed
         ;;
 esac
