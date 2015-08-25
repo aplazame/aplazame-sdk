@@ -11,10 +11,11 @@ script:
 deploy:
   bash:
     script:
+      - ./.drone/pypi.sh
       - ./.drone/deploy.sh
 
     when:
-      branch: master
+      branch: release
 
 notify:
   slack:
