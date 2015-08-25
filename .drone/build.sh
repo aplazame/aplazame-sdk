@@ -10,7 +10,7 @@ case $DRONE_BRANCH in
         ;;
 
     *)
-		make test
+        make test
         echo *$DRONE_BRANCH* pull request, all checks have passed
         ;;
 esac
