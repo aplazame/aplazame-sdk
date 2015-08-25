@@ -10,9 +10,7 @@ class OrdersTestCase(PrivateTestCase):
     def setUp(self):
         super(OrdersTestCase, self).setUp()
 
-        response = self.client.orders({
-            'ordering': '-cancelled,confirmed'
-        })
+        response = self.client.orders({'ordering': '-cancelled,confirmed'})
 
         qs = response.json()['results']
 
@@ -22,7 +20,7 @@ class OrdersTestCase(PrivateTestCase):
             self.instance = qs[0]
 
         else:
-            self.instance = None
+            raise Exception('Test order not found')
 
     def test_list(self):
         response = self.client.orders()
@@ -72,21 +70,11 @@ class OrdersTestCase(PrivateTestCase):
 
         self.assertEqual(response.status_code, 204)
 
-    @instance_required
     def test_cancel(self):
-        order = self.client.orders({
-            'ordering': 'cancelled,confirmed'
-        }).json()['results'][0]
+        with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
+            self.client.cancel('404')
 
-        if order['cancelled'] is not None:
-            with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
-                self.client.cancel(order['mid'])
-
-            self.assertEqual(excinfo.value.code, 403)
-
-        else:
-            response = self.client.cancel(order['mid'])
-            self.assertEqual(response.status_code, 204)
+        self.assertEqual(excinfo.value.code, 404)
 
     @instance_required
     def test_update(self):

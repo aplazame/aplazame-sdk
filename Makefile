@@ -1,4 +1,4 @@
-PYTEST ?= py.test --host=api.dev.aplazame.com --skip-verify --public-token=d3571070407d151b9b9d20c69deeab27e738b10f --private-token=029f07d69dfdc7aa573318239cdf6fc17d7daa04
+PYTEST = py.test --host=api.dev.aplazame.com --skip-verify --public-token=e75b929a1e4227230fe36c2af8fde10d6b2c5972 --private-token=2560a62b8c140f32c1b9f754ceefc888865d4f6b
 export PYTEST
 
 branch ?= dev
