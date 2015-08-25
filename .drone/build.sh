@@ -3,4 +3,9 @@
 set -e 
 
 make init-test
-make coverage
+
+echo branch: $DRONE_BRANCH
+
+if [ "$DRONE_BRANCH" = "release" ];
+	then make coverage;
+fi
