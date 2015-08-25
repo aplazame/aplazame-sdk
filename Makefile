@@ -7,9 +7,11 @@ tests ?= tests
 init-test:
 	pip install -r requirements/tests.txt
 
-init: init-test
+init-deploy:
+	pip install -r requirements/deploy.txt
+
+init: init-test init-deploy
 	pip install -r requirements/local.txt
-	pip install -r requirements/build.txt
 
 test:
 	$(PYTEST) --verbose $(tests)
