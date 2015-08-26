@@ -49,7 +49,7 @@ Http
 
     GET /orders HTTP/1.1
     Accept: application/vnd.aplazame.sandbox.v1+json
-    Authorization: Bearer ->AccessToken<-
+    Authorization: Bearer ->token<-
     Host: api.aplazame.com
 
     HTTP/1.1 200 OK
