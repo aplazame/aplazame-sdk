@@ -17,11 +17,11 @@ test:
 	$(PYTEST) --verbose $(tests)
 
 coverage:
-	$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk tests
+	$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk $(tests)
 	coveralls
 
 ci: init
-	$(PYTEST) --junitxml=junit.xml tests
+	$(PYTEST) --junitxml=junit.xml $(tests)
 
 publish:
 	python setup.py register
@@ -34,7 +34,6 @@ dev:
 
 release:
 	git checkout release
-	git merge master
+	git pull origin master
 	git push origin release
-	git checkout dev
-
+	git checkout $(branch)
