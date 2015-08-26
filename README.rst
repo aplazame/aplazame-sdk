@@ -23,7 +23,7 @@ Usage
 .. code:: python
 
     >>> import aplazame_sdk
-    >>> client = aplazame_sdk.Client('->token<-', sandbox=True, version='1', ctype='json')
+    >>> client = aplazame_sdk.Client('token', sandbox=True, version='1', ctype='json')
     >>> r = client.orders(page=2)
     >>> r.json()
     {
