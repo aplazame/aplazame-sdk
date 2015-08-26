@@ -59,9 +59,10 @@ class BuildVersion(Command):
 
             return "{0}.{1:d}".format(version, build)
 
+        pattern = re.compile('^(__version__ = [\'"]\d+.\d+)[.]?(\d+)?')
+
         for line in fileinput.input('aplazame_sdk/__init__.py', inplace=True):
-            print(re.sub(r'^(__version__ = [\'"]\d+.\d+)[.]?(\d+)?',
-                         _build_version, line), end='')
+            print(pattern.sub(_build_version, line), end='')
 
 
 def get_version(package):
