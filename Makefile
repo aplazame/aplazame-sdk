@@ -34,7 +34,7 @@ dev:
 
 release:
 	git checkout release
-	git merge master
+	git pull origin master
 	git push origin release
 	git checkout dev
 
