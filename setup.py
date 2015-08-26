@@ -57,10 +57,10 @@ class BuildVersion(Command):
             else:
                 build = int(build) + 1
 
-            return "{0}.{1:d}'".format(version, build)
+            return "{0}.{1:d}".format(version, build)
 
         for line in fileinput.input('aplazame_sdk/__init__.py', inplace=True):
-            print(re.sub(r'^(__version__ = \'\d+.\d+)[.]?(\d+)?\'',
+            print(re.sub(r'^(__version__ = \'\d+.\d+)[.]?(\d+)?',
                          _build_version, line), end='')
 
 

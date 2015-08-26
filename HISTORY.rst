@@ -4,7 +4,7 @@ Change Log
 `0.2.2`_ (2015-??-??)
 ---------------------
 
-`Full Changelog`_
+`Full Changelog v0.2.2`_
 
 * ci pull request strategy
 * ci publish on pypi
@@ -13,7 +13,7 @@ Change Log
 `0.2.1`_ (2015-08-24)
 ---------------------
 
-`Full Changelog`_
+`Full Changelog v0.2.1`_
 
 * ci deploy master
 * Simulator request
@@ -21,8 +21,6 @@ Change Log
 
 `0.2.0`_ (2015-07-20)
 ---------------------
-
-`Full Changelog`_
 
 * Makefile
 * ci with drone.io
@@ -34,4 +32,5 @@ Change Log
 .. _0.2.0: https://github.com/aplazame/aplazame-sdk/tree/v0.2.0
 .. _0.2.1: https://github.com/aplazame/aplazame-sdk/tree/v0.2.1
 .. _0.2.2: https://github.com/aplazame/aplazame-sdk/tree/v0.2.2
-.. _Full Changelog: https://github.com/aplazame/aplazame-sdk/compare/v0.2.0...v0.2.2
+.. _Full Changelog v0.2.1: https://github.com/aplazame/aplazame-sdk/compare/v0.2.0...v0.2.1
+.. _Full Changelog v0.2.2: https://github.com/aplazame/aplazame-sdk/compare/v0.2.0...v0.2.2
