@@ -5,7 +5,7 @@ Aplazame Python Sdk
 
 |Aplazame|
 
-Aplazame, a consumer credit company, offers a payment system that can be
+`Aplazame`_, a consumer credit company, offers a payment system that can be
 used by online buyers to receive funding for their purchases.
 
 Installation
@@ -60,6 +60,7 @@ Documentation
 
 Documentation is available at `docs.aplazame.com`_.
 
+.. _Aplazame: https://aplazame.com
 .. _docs.aplazame.com: http://docs.aplazame.com
 
 
