@@ -1,20 +1,21 @@
 Change Log
 ==========
 
-`0.2.2`_ (2015-?-?)
--------------------
+`0.2.2`_ (2015-??-??)
+---------------------
 
 `Full Changelog`_
 
-* Continuous integration strategy
-* ci Pull request
+* ci pull request strategy
+* ci publish on pypi
+* ci package versioning
 
 `0.2.1`_ (2015-08-24)
--------------------
+---------------------
 
 `Full Changelog`_
 
-* Continuous integration deploy master
+* ci deploy master
 * Simulator request
 * Fix minor errors
 
@@ -24,7 +25,7 @@ Change Log
 `Full Changelog`_
 
 * Makefile
-* Continuous integration with drone
+* ci with drone.io
 * Coverage 100%
 * Test and build requirements
 * Add badges

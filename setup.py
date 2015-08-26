@@ -1,8 +1,11 @@
+from __future__ import print_function
+
 import os
 import re
 import sys
+import fileinput
 
-from setuptools import setup
+from setuptools import setup, Command
 from setuptools.command.test import test as TestCommand
 
 
@@ -10,7 +13,10 @@ class PyTest(TestCommand):
 
     """
     Usage:
-    python setup.py test -a "--host=:host --private-token=:token"
+    python setup.py test -a "
+        --host=:host
+        --private-token=:private-token
+        --public-token=:public-token"
     """
     user_options = [
         ('pytest-args=', 'a', "Arguments to pass to py.test")
@@ -29,6 +35,33 @@ class PyTest(TestCommand):
         import pytest
         errno = pytest.main(self.pytest_args)
         sys.exit(errno)
+
+
+class BuildVersion(Command):
+
+    user_options = []
+
+    def initialize_options(self):
+        pass
+
+    def finalize_options(self):
+        pass
+
+    def run(self):
+
+        def _build_version(match):
+            version, build = match.groups()
+
+            if build is None:
+                build = 0
+            else:
+                build = int(build) + 1
+
+            return "{0}.{1:d}'".format(version, build)
+
+        for line in fileinput.input('aplazame_sdk/__init__.py', inplace=True):
+            print(re.sub(r'^(__version__ = \'\d+.\d+)[.]?(\d+)?\'',
+                         _build_version, line), end='')
 
 
 def get_version(package):
@@ -58,7 +91,7 @@ setup(
     package_data={'': ['LICENSE']},
     include_package_data=True,
     tests_require=['pytest'],
-    cmdclass={'test': PyTest},
+    cmdclass={'test': PyTest, 'versioning': BuildVersion},
     zip_safe=False,
     url='https://github.com/aplazame/aplazame-sdk',
     license='Apache 2.0',

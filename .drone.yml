@@ -13,14 +13,20 @@ deploy:
     script:
       - ./.drone/pypi.sh
       - ./.drone/deploy.sh
+    when:
+      branch: release
 
+  git:
+    target: git@github.com:aplazame/aplazame-sdk.git
+    branch: master
+    force: false
     when:
       branch: release
 
 notify:
   slack:
     webhook_url: $$SLACK_WEBHOOK_URL
-    username: 'drone'
+    username: 'aplazame-sdk'
     on_success: change
     on_failure: true
 
