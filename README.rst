@@ -22,8 +22,8 @@ Usage
 
 .. code:: python
 
-    >>> from aplazame_sdk import Client
-    >>> client = Client('->AccessToken<-', sandbox=True, version='1', ctype='json')
+    >>> import aplazame_sdk
+    >>> client = aplazame_sdk.Client('->AccessToken<-', sandbox=True, version='1', ctype='json')
     >>> r = client.orders(page=2)
     >>> r.json()
     {
