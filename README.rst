@@ -76,5 +76,5 @@ Documentation is available at `docs.aplazame.com`_.
    :target: https://coveralls.io/github/aplazame/aplazame-sdk?branch=HEAD
 .. |Code Climate| image:: https://codeclimate.com/github/aplazame/aplazame-sdk/badges/gpa.svg
    :target: https://codeclimate.com/github/aplazame/aplazame-sdk
-.. |Aplazame| image:: https://aplazame.com/static/img/banners/banner-728-white.png
+.. |Aplazame| image:: https://aplazame.com/static/img/banners/banner-728-white-python.png
    :target: https://aplazame.com
