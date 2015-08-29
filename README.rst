@@ -1,7 +1,7 @@
 Aplazame Python Sdk
 ===================
 
-|Build Status| |Wheel| |Downloads| |Drone| |Coveralls| |Code Climate|
+|Build Status| |Wheel| |Requirements| |Drone| |Coveralls| |Code Climate|
 
 |Aplazame|
 
@@ -70,6 +70,8 @@ Documentation is available at `docs.aplazame.com`_.
    :target: https://pypi.python.org/pypi/aplazame-sdk
 .. |Downloads| image:: https://img.shields.io/pypi/dm/aplazame-sdk.svg
    :target: https://pypi.python.org/pypi/aplazame-sdk
+.. |Requirements Status| image:: https://requires.io/github/aplazame/aplazame-sdk/requirements.svg?branch=master
+   :target: https://requires.io/github/aplazame/aplazame-sdk/requirements/?branch=master
 .. |Drone| image:: http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master
    :target: http://drone.aplazame.com/github.com/aplazame/aplazame-sdk
 .. |Coveralls| image:: https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=HEAD&service=github
