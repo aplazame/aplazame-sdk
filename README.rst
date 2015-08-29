@@ -1,7 +1,7 @@
 Aplazame Python Sdk
 ===================
 
-|Build Status| |Wheel| |Requirements Status| |Drone| |Coveralls| |Code Climate|
+|Build Status| |Wheel| |Drone| |Requirements Status| |Coveralls| |Code Climate|
 
 |Aplazame|
 
