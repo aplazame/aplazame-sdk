@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # install requirements
-make init-deploy
+make init.deploy
 
 # package versioning
 python setup.py versioning

@@ -9,36 +9,36 @@ export PYTEST
 branch ?= dev
 tests ?= tests
 
-init-test:
-	pip install -r requirements/tests.txt
+init.test:
+	@pip install -r requirements/tests.txt
 
-init-deploy:
-	pip install -r requirements/deploy.txt
+init.deploy:
+	@pip install -r requirements/deploy.txt
 
-init: init-test init-deploy
-	pip install -r requirements/local.txt
+init: init.test init.deploy
+	@pip install -r requirements/local.txt
 
 test:
-	$(PYTEST) --verbose $(tests)
+	@$(PYTEST) --verbose $(tests)
 
 coverage:
-	$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk $(tests)
-	coveralls
+	@$(PYTEST) --verbose --cov-report term --cov=aplazame_sdk $(tests)
+	@coveralls
 
 ci: init
-	$(PYTEST) --junitxml=junit.xml $(tests)
+	@$(PYTEST) --junitxml=junit.xml $(tests)
 
 publish:
-	python setup.py register
-	python setup.py sdist upload
-	python setup.py bdist_wheel upload
+	@python setup.py register
+	@python setup.py sdist upload
+	@python setup.py bdist_wheel upload
 
 $(branch):
-	git checkout $(branch)
-	git push origin $(branch)
+	@git checkout $(branch)
+	@git push origin $(branch)
 
 release:
-	git checkout release
-	git pull origin master
-	git push origin release
-	git checkout $(branch)
+	@git checkout release
+	@git pull origin master
+	@git push origin release
+	@git checkout $(branch)
