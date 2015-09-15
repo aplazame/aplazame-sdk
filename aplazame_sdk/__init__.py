@@ -115,19 +115,29 @@ class Client(object):
         return self._endpoint(action, 'DELETE', **kwargs)
 
     def merchants(self, params=None, **kwargs):
-        return self.get('merchants', params)
+        return self.get('merchants', params, **kwargs)
 
     def merchant_detail(self, id):
         return self.get("merchants/{id}".format(id=id))
 
+    def merchant_operations(self, id, params=None, **kwargs):
+        return self.get("merchants/{id}/operations".format(
+            id=id), params, **kwargs)
+
+    def me(self):
+        return self.get('me')
+
+    def operations(self, params=None, **kwargs):
+        return self.get('me/operations', params, **kwargs)
+
     def customers(self, params=None, **kwargs):
-        return self.get('customers', params)
+        return self.get('customers', params, **kwargs)
 
     def customer_detail(self, id):
         return self.get("customers/{id}".format(id=id))
 
     def orders(self, params=None, **kwargs):
-        return self.get('orders', params)
+        return self.get('orders', params, **kwargs)
 
     def order_detail(self, id):
         return self.get("orders/{id}".format(id=id))

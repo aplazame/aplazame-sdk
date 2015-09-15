@@ -1,11 +1,14 @@
 Change Log
 ==========
 
-`0.2.2`_ (2015-??-??)
+`0.2.2`_ (2015-09-15)
 ---------------------
 
 `Full Changelog v0.2.2`_
 
+* Fix lists kwargs
+* Replace license
+* Add /me and operations
 * ci pull request strategy
 * ci publish on pypi
 * ci package versioning
