@@ -5,7 +5,12 @@ set -e
 make init.test
 
 case $DRONE_BRANCH in
-    master|release)
+    release)
+        make coverage
+        python setup.py versioning
+        ;;
+
+    master)
         make coverage
         ;;
 
