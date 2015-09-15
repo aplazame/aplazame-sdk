@@ -120,15 +120,15 @@ class Client(object):
     def merchant_detail(self, id):
         return self.get("merchants/{id}".format(id=id))
 
-    def merchant_operations(self, id, params=None, **kwargs):
-        return self.get("merchants/{id}/operations".format(
-            id=id), params, **kwargs)
-
     def me(self):
         return self.get('me')
 
     def operations(self, params=None, **kwargs):
         return self.get('me/operations', params, **kwargs)
+
+    def merchant_operations(self, id, params=None, **kwargs):
+        return self.get("merchants/{id}/operations".format(
+            id=id), params, **kwargs)
 
     def customers(self, params=None, **kwargs):
         return self.get('customers', params, **kwargs)
