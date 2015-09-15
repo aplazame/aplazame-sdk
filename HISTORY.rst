@@ -7,7 +7,6 @@ Change Log
 `Full Changelog v0.2.2`_
 
 * Fix lists kwargs
-* Replace license
 * Add /me and operations
 * ci pull request strategy
 * ci publish on pypi
