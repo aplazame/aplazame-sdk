@@ -1,4 +1,9 @@
-PYTEST = py.test --host=api.dev.aplazame.com --skip-verify --public-token=e75b929a1e4227230fe36c2af8fde10d6b2c5972 --private-token=2560a62b8c140f32c1b9f754ceefc888865d4f6b
+PYTEST = py.test\
+	--host=api.dev.aplazame.com\
+	--skip-verify\
+	--public-token=e75b929a1e4227230fe36c2af8fde10d6b2c5972\
+	--private-token=2560a62b8c140f32c1b9f754ceefc888865d4f6b
+
 export PYTEST
 
 branch ?= dev
@@ -28,7 +33,7 @@ publish:
 	python setup.py sdist upload
 	python setup.py bdist_wheel upload
 
-dev:
+$(branch):
 	git checkout $(branch)
 	git push origin $(branch)
 
