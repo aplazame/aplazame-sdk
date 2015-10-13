@@ -29,5 +29,12 @@ class MerchantsTestCase(PrivateTestCase):
 
     @instance_required
     def test_merchant_operations(self):
-        response = self.client.merchant_operations(self.instance['id'])
+        response = self.client\
+            .merchant_request('operations', self.instance['id'])
+        self.assertEqual(response.status_code, 200)
+
+    @instance_required
+    def test_merchant_payments(self):
+        response = self.client\
+            .merchant_request('payments', self.instance['id'])
         self.assertEqual(response.status_code, 200)
