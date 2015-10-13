@@ -47,8 +47,10 @@ class OrdersTestCase(PrivateTestCase):
 
     @instance_required
     def test_authorize(self):
-        response = self.client.authorize(self.instance['mid'])
-        self.assertEqual(response.status_code, 200)
+        with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
+            self.client.authorize(self.instance['mid'])
+
+        self.assertEqual(excinfo.value.code, 403)
 
     @instance_required
     def test_partial_update(self):
