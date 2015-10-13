@@ -126,6 +126,9 @@ class Client(object):
     def operations(self, params=None, **kwargs):
         return self.get('me/operations', params, **kwargs)
 
+    def payments(self, params=None, **kwargs):
+        return self.get('me/payments', params, **kwargs)
+
     def merchant_request(self, service, id, params=None, **kwargs):
         return self.get("merchants/{0}/{1}".format(
             id, service), params, **kwargs)
