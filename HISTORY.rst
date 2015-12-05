@@ -6,7 +6,7 @@ Change Log
 
 `Full Changelog v0.2.4`_
 
-* Instlment payments
+* Instalment payments
 * Tests
 
 `0.2.3`_ (2015-10-13)
