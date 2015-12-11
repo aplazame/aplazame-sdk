@@ -42,6 +42,19 @@ Usage
     >>> r.status_code
     200
 
+Exceptions
+----------
+
+.. code:: python
+
+    >>> import aplazame_sdk
+    >>> client = aplazame_sdk.Client('token')
+    >>> try:
+    ...     r = client.get_order('buh')
+    ... except aplazame_sdk.AplazameError as err:
+    ...     err.code
+    404
+
 Http
 ----
 
