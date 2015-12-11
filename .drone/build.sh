@@ -8,7 +8,7 @@ case $DRONE_BRANCH in
     release)
         make coverage
         python setup.py versioning
-        git commit -am "update release version" aplazame_sdk/__init__.py
+        git commit -m "update release version" aplazame_sdk/__init__.py
         ;;
 
     master)
