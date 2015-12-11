@@ -23,7 +23,7 @@ class ClientTestCase(PrivateTestCase):
         self.client.ctype = 'xml'
 
         with pytest.raises(aplazame_sdk.AplazameError) as excinfo:
-            self.client.order_detail('404')
+            self.client.get_order('404')
 
         self.assertIsNone(excinfo.value.type)
 

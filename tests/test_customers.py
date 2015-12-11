@@ -16,7 +16,7 @@ class CustomersTestCase(PrivateTestCase):
 
     @instance_required
     def test_detail(self):
-        response = self.client.customer_detail(self.instance['id'])
+        response = self.client.get_customer(self.instance['id'])
         self.assertEqual(response.status_code, 200)
 
     @instance_required

@@ -32,7 +32,7 @@ class OrdersTestCase(PrivateTestCase):
 
     @instance_required
     def test_detail(self):
-        response = self.client.order_detail(self.instance['id'])
+        response = self.client.get_order(self.instance['id'])
         self.assertEqual(response.status_code, 200)
 
     @instance_required

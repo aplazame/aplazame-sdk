@@ -117,7 +117,7 @@ class Client(object):
     def merchants(self, params=None, **kwargs):
         return self.get('merchants', params, **kwargs)
 
-    def merchant_detail(self, id):
+    def get_merchant(self, id):
         return self.get("merchants/{id}".format(id=id))
 
     def me(self):
@@ -145,13 +145,13 @@ class Client(object):
     def customers(self, params=None, **kwargs):
         return self.get('customers', params, **kwargs)
 
-    def customer_detail(self, id):
+    def get_customer(self, id):
         return self.get("customers/{id}".format(id=id))
 
     def orders(self, params=None, **kwargs):
         return self.get('orders', params, **kwargs)
 
-    def order_detail(self, id):
+    def get_order(self, id):
         return self.get("orders/{id}".format(id=id))
 
     def authorize(self, id):

@@ -16,7 +16,7 @@ class MerchantsTestCase(PrivateTestCase):
 
     @instance_required
     def test_detail(self):
-        response = self.client.merchant_detail(self.instance['id'])
+        response = self.client.get_merchant(self.instance['id'])
         self.assertEqual(response.status_code, 200)
 
     def test_me(self):
