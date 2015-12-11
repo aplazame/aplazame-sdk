@@ -126,8 +126,14 @@ class Client(object):
     def operations(self, params=None, **kwargs):
         return self.get('me/operations', params, **kwargs)
 
+    def operations_summary(self, params=None, **kwargs):
+        return self.get('me/operations/summary', params, **kwargs)
+
     def payments(self, params=None, **kwargs):
         return self.get('me/payments', params, **kwargs)
+
+    def payments_summary(self, params=None, **kwargs):
+        return self.get('me/payments/summary', params, **kwargs)
 
     def instalment_payments(self, params=None, **kwargs):
         return self.get('me/instalment-payments', params, **kwargs)
