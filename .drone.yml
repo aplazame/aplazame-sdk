@@ -1,37 +1,53 @@
-image: python
-
 branches:
   - master
   - release
 
-script:
-  - chmod +x ./.drone/*.sh
-  - ./.drone/build.sh
+build:
+  image: python:2.7
+  commands:
+    # dependencies
+    - 'make init.test'
+    # run tests and check coverage
+    - 'make coverage'
+    # build release
+    - 'python setup.py versioning'
+    - 'git commit -m "update release version" aplazame_sdk/__init__.py'
 
 deploy:
-  bash:
-    script:
-      - ./.drone/pypi.sh
-      - ./.drone/deploy.sh
+  git_push:
+    remote: git@github.com:aplazame/aplazame-sdk.git
+    branch: master
+    force: false
     when:
       branch: release
 
-  git:
-    target: git@github.com:aplazame/aplazame-sdk.git
-    branch: master
-    force: false
+  pypi:
+    username: $$PYPI_USERNAME
+    password: $$PYPI_PASSWORD
+    distributions:
+      - sdist
+      - bdist_wheel
     when:
       branch: release
 
 notify:
   slack:
     webhook_url: $$SLACK_WEBHOOK_URL
-    username: 'aplazame-sdk'
-    on_success: change
-    on_failure: true
+    username: 'drone'
+    channel: 'developers'
+    when:
+      success: false
+      failure: true
+      change: true
 
   email:
+    from: $$EMAIL_FROM
+    host: $$EMAIL_HOST
+    username: $$EMAIL_USERNAME
+    password: $$EMAIL_PASS
     recipients:
       - dev@aplazame.com
-    on_success: change
-    on_failure: true
+    when:
+      success: false
+      failure: true
+      change: true

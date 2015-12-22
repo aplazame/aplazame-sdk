@@ -17,3 +17,4 @@
 dist
 build
 junit.xml
+secrets.yml

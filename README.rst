@@ -76,7 +76,6 @@ Documentation is available at `docs.aplazame.com`_.
 .. _Aplazame: https://aplazame.com
 .. _docs.aplazame.com: http://docs.aplazame.com
 
-
 .. |Build Status| image:: https://img.shields.io/pypi/v/aplazame-sdk.svg
    :target: https://pypi.python.org/pypi/aplazame-sdk
 .. |Wheel| image:: https://img.shields.io/pypi/wheel/aplazame-sdk.svg
@@ -85,8 +84,8 @@ Documentation is available at `docs.aplazame.com`_.
    :target: https://pypi.python.org/pypi/aplazame-sdk
 .. |Requirements Status| image:: https://requires.io/github/aplazame/aplazame-sdk/requirements.svg?branch=master
    :target: https://requires.io/github/aplazame/aplazame-sdk/requirements/?branch=master
-.. |Drone| image:: http://drone.aplazame.com/api/badge/github.com/aplazame/aplazame-sdk/status.svg?branch=master
-   :target: http://drone.aplazame.com/github.com/aplazame/aplazame-sdk
+.. |Drone| image:: http://drone.aplazame.com/api/badges/aplazame/aplazame-sdk/status.svg
+   :target: http://drone.aplazame.com/aplazame/aplazame-sdk
 .. |Coveralls| image:: https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=HEAD&service=github
    :target: https://coveralls.io/github/aplazame/aplazame-sdk?branch=HEAD
 .. |Code Climate| image:: https://codeclimate.com/github/aplazame/aplazame-sdk/badges/gpa.svg
