@@ -12,6 +12,8 @@ build:
     # build release
     - 'python setup.py versioning'
     - 'git commit -m "update release version" aplazame_sdk/__init__.py'
+  environment:
+    - COVERALLS_REPO_TOKEN=$$COVERALLS_REPO_TOKEN
 
 deploy:
   git_push:
