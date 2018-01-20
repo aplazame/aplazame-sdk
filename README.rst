@@ -1,7 +1,7 @@
 Aplazame Python Sdk
 ===================
 
-|Build Status| |Wheel| |Drone| |Requirements Status| |Coveralls| |Code Climate|
+|Build Status|
 
 |Aplazame|
 
@@ -78,17 +78,5 @@ Documentation is available at `docs.aplazame.com`_.
 
 .. |Build Status| image:: https://img.shields.io/pypi/v/aplazame-sdk.svg
    :target: https://pypi.python.org/pypi/aplazame-sdk
-.. |Wheel| image:: https://img.shields.io/pypi/wheel/aplazame-sdk.svg
-   :target: https://pypi.python.org/pypi/aplazame-sdk
-.. |Downloads| image:: https://img.shields.io/pypi/dm/aplazame-sdk.svg
-   :target: https://pypi.python.org/pypi/aplazame-sdk
-.. |Requirements Status| image:: https://requires.io/github/aplazame/aplazame-sdk/requirements.svg?branch=master
-   :target: https://requires.io/github/aplazame/aplazame-sdk/requirements/?branch=master
-.. |Drone| image:: http://drone.aplazame.com/api/badges/aplazame/aplazame-sdk/status.svg
-   :target: http://drone.aplazame.com/aplazame/aplazame-sdk
-.. |Coveralls| image:: https://coveralls.io/repos/aplazame/aplazame-sdk/badge.svg?branch=HEAD&service=github
-   :target: https://coveralls.io/github/aplazame/aplazame-sdk?branch=HEAD
-.. |Code Climate| image:: https://codeclimate.com/github/aplazame/aplazame-sdk/badges/gpa.svg
-   :target: https://codeclimate.com/github/aplazame/aplazame-sdk
 .. |Aplazame| image:: https://aplazame.com/static/img/banners/banner-728-white-python.png
    :target: https://aplazame.com
