@@ -78,5 +78,5 @@ Documentation is available at `docs.aplazame.com`_.
 
 .. |Build Status| image:: https://img.shields.io/pypi/v/aplazame-sdk.svg
    :target: https://pypi.python.org/pypi/aplazame-sdk
-.. |Aplazame| image:: https://aplazame.com/static/img/banners/banner-728-white-python.png
+.. |Aplazame| image:: https://aplazame.com/landing-assets/images/banners/banner-1517-white.png
    :target: https://aplazame.com
