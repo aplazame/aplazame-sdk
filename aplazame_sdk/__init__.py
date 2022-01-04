@@ -38,8 +38,7 @@ class AplazameError(Exception):
                 self.type = None
             else:
                 self.message = error['message']
-                if self.type:
-                    self.type = error['type']
+                self.type = error.get('type')
 
     def __str__(self):
         return "{self.code}.{self.message}".format(self=self)
