@@ -27,7 +27,7 @@ updates:
     timezone: Europe/Madrid
   open-pull-requests-limit: 10
   commit-message:
-    prefix: "[Dep][docker] "
+    prefix: "[Dep][pip] "
   #ignore:
     #- dependency-name: "python"
       # For python, ignore all updates for version 3.10
