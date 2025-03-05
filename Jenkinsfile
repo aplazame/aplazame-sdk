@@ -29,7 +29,7 @@ pipeline {
       }
       environment {
         SONAR_TEST = credentials('SONAR_TEST')
-        CODE_SOURCE_DEFAULT = "aplazame-sdk"
+        CODE_SOURCE_DEFAULT = "aplazame_sdk"
       }
       steps {
         scmSkip()
